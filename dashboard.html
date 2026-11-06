@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard &middot; Fab Steel Consultancy ERP</title>
+
+  <script>
+    (function () {
+      const saved = localStorage.getItem('fab_erp_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', saved);
+    })();
+  </script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- App Styles -->
+  <link rel="stylesheet" href="assets/css/themes.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+
+  <!-- Lucide Icons -->
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.6/dist/chart.umd.min.js"></script>
+  <!-- html2pdf.js for Client-Side PDF Generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body class="trading-grid-bg">
+
+  <!-- Mobile Sidebar Backdrop -->
+  <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+  <div class="app-container">
+    
+    <!-- =========================================================================
+         SIDEBAR NAVIGATION
+         ========================================================================= -->
+    <aside id="appSidebar" class="app-sidebar">
+      
+      <!-- Sidebar Header / Brand -->
+      <div class="sidebar-header">
+        <a href="#dashboard" class="brand-wrapper">
+          <div class="brand-icon-box">
+            <i data-lucide="layers" style="width: 22px; height: 22px;"></i>
+          </div>
+          <div class="brand-text">
+            <span class="brand-name">Fab Steel</span>
+            <span class="brand-subtitle">Consultancy ERP</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Navigation Links Container -->
+      <div class="sidebar-nav-container">
+        
+        <div class="nav-section-title">Core Operations</div>
+        <ul class="sidebar-nav-list">
+          <li>
+            <a href="#dashboard" class="nav-item-link active">
+              <span class="nav-icon"><i data-lucide="layout-dashboard"></i></span>
+              <span class="nav-item-label">Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="#employees" class="nav-item-link">
+              <span class="nav-icon"><i data-lucide="users"></i></span>
+              <span class="nav-item-label">Employees</span>
+            </a>
+          </li>
+          <li>
+            <a href="#attendance" class="nav-item-link">
+              <span class="nav-icon"><i data-lucide="clock"></i></span>
+              <span class="nav-item-label">Attendance</span>
+            </a>
+          </li>
+          <li>
+            <a href="#invoices" class="nav-item-link">
+              <span class="nav-icon"><i data-lucide="file-text"></i></span>
+              <span class="nav-item-label">Invoices</span>
+            </a>
+          </li>
+          <li>
+            <a href="#partners" class="nav-item-link">
+              <span class="nav-icon"><i data-lucide="building-2"></i></span>
+              <span class="nav-item-label">Partners</span>
+            </a>
+          </li>
+          <li>
+            <a href="#salary" class="nav-item-link">
+              <span class="nav-icon"><i data-lucide="banknote"></i></span>
+              <span class="nav-item-label">Salary Management</span>
+            </a>
+          </li>
+          <li>
+            <a href="#payroll" class="nav-item-link">
+              <span class="nav-icon"><i data-lucide="credit-card"></i></span>
+              <span class="nav-item-label">Payroll</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="nav-section-title">Marketing & Web</div>
+        <ul class="sidebar-nav-list">
+          <li>
+            <a href="#website" class="nav-item-link">
+              <span class="nav-icon"><i data-lucide="globe"></i></span>
+              <span class="nav-item-label">Website CMS</span>
+            </a>
+          </li>
+          <li>
+            <a href="#team" class="nav-item-link">
+              <span class="nav-icon"><i data-lucide="user-check"></i></span>
+              <span class="nav-item-label">Team Management</span>
+            </a>
+          </li>
+          <li>
+            <a href="#contacts" class="nav-item-link">
+              <span class="nav-icon"><i data-lucide="mail"></i></span>
+              <span class="nav-item-label">Contact Messages</span>
+              <span id="sidebarContactBadge" class="nav-item-badge badge-pending" style="display: none;">0</span>
+            </a>
+          </li>
+          <li>
+            <a href="#inquiries" class="nav-item-link">
+              <span class="nav-icon"><i data-lucide="help-circle"></i></span>
+              <span class="nav-item-label">Partner Inquiries</span>
+              <span id="sidebarInquiryBadge" class="nav-item-badge badge-review" style="display: none;">0</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="nav-section-title">System & Governance</div>
+        <ul class="sidebar-nav-list">
+          <li>
+            <a href="#mailer" class="nav-item-link">
+              <span class="nav-icon"><i data-lucide="send"></i></span>
+              <span class="nav-item-label">Email Center</span>
+            </a>
+          </li>
+          <li>
+            <a href="#logs" class="nav-item-link">
+              <span class="nav-icon"><i data-lucide="activity"></i></span>
+              <span class="nav-item-label">Activity Logs</span>
+            </a>
+          </li>
+          <li>
+            <a href="#reports" class="nav-item-link">
+              <span class="nav-icon"><i data-lucide="bar-chart-3"></i></span>
+              <span class="nav-item-label">Reports & Analytics</span>
+            </a>
+          </li>
+          <li>
+            <a href="#settings" class="nav-item-link">
+              <span class="nav-icon"><i data-lucide="settings"></i></span>
+              <span class="nav-item-label">Settings</span>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+
+      <!-- Sidebar Footer (Active User Capsule) -->
+      <div class="sidebar-footer">
+        <div class="sidebar-user-pill" onclick="window.FabAuth.showSwitchRoleModal()" title="Switch Demo Persona">
+          <img id="sidebarUserAvatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" class="user-avatar-sm" alt="User">
+          <div class="user-info-text">
+            <span id="sidebarUserName" class="user-name">User Account</span>
+            <span id="sidebarUserRole" class="user-role-badge">SUPER ADMIN</span>
+          </div>
+          <i data-lucide="chevrons-up-down" style="width: 14px; height: 14px; margin-left: auto; color: var(--text-muted);"></i>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- =========================================================================
+         MAIN APPLICATION WRAPPER
+         ========================================================================= -->
+    <div class="app-main">
+      
+      <!-- Top Navigation Header -->
+      <header class="app-topnav">
+        
+        <!-- Left Title & Sidebar Toggler -->
+        <div class="topnav-left">
+          <button type="button" id="sidebarToggleBtn" class="sidebar-toggle-btn" title="Toggle Sidebar">
+            <i data-lucide="menu" style="width: 18px; height: 18px;"></i>
+          </button>
+          <div class="page-header-title">
+            <div id="topNavBreadcrumb" class="page-breadcrumb">
+              <span>Portal</span> &middot; <span style="color: var(--primary);">Dashboard</span>
+            </div>
+            <h2 id="topNavPageTitle" class="page-title">Executive Dashboard</h2>
+          </div>
+        </div>
+
+        <!-- Right Controls Cluster -->
+        <div class="topnav-right">
+          
+          <!-- Global Search Spotlight Button (Ctrl + K) -->
+          <button type="button" class="global-search-btn trigger-global-search">
+            <i data-lucide="search" style="width: 16px; height: 16px;"></i>
+            <span>Quick search...</span>
+            <span class="kbd-shortcut">⌘K</span>
+          </button>
+
+          <!-- Mobile Quick Search Trigger Icon -->
+          <button type="button" class="nav-action-btn global-search-mobile-btn trigger-global-search" style="display: none;" title="Search">
+            <i data-lucide="search" style="width: 16px; height: 16px;"></i>
+          </button>
+
+          <!-- Public Website Preview Link -->
+          <a href="public-preview/index.html" target="_blank" class="nav-action-btn" title="View Public Website">
+            <i data-lucide="globe" style="width: 17px; height: 17px;"></i>
+          </a>
+
+          <!-- Live Telemetry Status Pill -->
+          <div class="terminal-status-pill" title="Real-Time Data Engine Online">
+            <span class="pulse-dot"></span>
+            <span>SYSTEM ONLINE</span>
+          </div>
+
+          <!-- Theme Toggle Button -->
+          <button type="button" id="themeToggleBtn" class="nav-action-btn" title="Switch Theme">
+            <i id="themeToggleIcon" data-lucide="moon" style="width: 17px; height: 17px;"></i>
+          </button>
+
+          <!-- Notifications Bell & Dropdown Container -->
+          <div style="position: relative;">
+            <button type="button" id="notifDropdownBtn" class="nav-action-btn" title="Notifications">
+              <i data-lucide="bell" style="width: 17px; height: 17px;"></i>
+              <span class="notification-dot badge-dot" style="display: none;"></span>
+            </button>
+            <div id="notificationDropdownMenu" class="dropdown-menu-erp" style="width: 360px;">
+              <!-- Populated by FabNotifications.renderDropdown() -->
+            </div>
+          </div>
+
+          <!-- User Profile Popover & Dropdown Menu -->
+          <div style="position: relative;">
+            <div id="userProfileDropdownBtn" style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; padding: 4px; border-radius: var(--radius-md);">
+              <img id="topNavUserAvatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" class="user-avatar-sm" style="width: 34px; height: 34px; min-width: 34px;" alt="Profile">
+              <div style="display: none;" class="d-xl-block text-start">
+                <div id="topNavUserName" style="font-size: 0.825rem; font-weight: 700; color: var(--text-primary); line-height: 1.1;">Administrator</div>
+                <div id="topNavUserRole" style="font-size: 0.65rem; color: var(--secondary); font-weight: 600;">SUPER ADMIN</div>
+              </div>
+              <i data-lucide="chevron-down" style="width: 14px; height: 14px; color: var(--text-muted);"></i>
+            </div>
+
+            <div id="userProfileDropdownMenu" class="dropdown-menu-erp" style="width: 230px;">
+              <div style="padding: 0.75rem 1rem; border-bottom: 1px solid var(--border-subtle); background-color: var(--bg-surface-elevated);">
+                <div style="font-size: 0.75rem; color: var(--text-muted);">Signed in as:</div>
+                <div style="font-weight: 700; font-size: 0.85rem; color: var(--text-primary);" class="text-truncate">
+                  Demo User Session
+                </div>
+              </div>
+              <a href="javascript:void(0)" class="dropdown-item-erp" onclick="window.FabAuth.showSwitchRoleModal()">
+                <i data-lucide="shield" style="width: 16px; height: 16px; color: var(--primary);"></i> Switch Demo Role
+              </a>
+              <a href="#settings" class="dropdown-item-erp">
+                <i data-lucide="sliders" style="width: 16px; height: 16px;"></i> System Settings
+              </a>
+              <a href="public-preview/index.html" target="_blank" class="dropdown-item-erp">
+                <i data-lucide="external-link" style="width: 16px; height: 16px;"></i> Public Website
+              </a>
+              <div class="dropdown-divider-erp"></div>
+              <a href="javascript:void(0)" class="dropdown-item-erp text-danger" onclick="window.FabAuth.logout()">
+                <i data-lucide="log-out" style="width: 16px; height: 16px; color: var(--danger);"></i> Sign Out
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </header>
+
+      <!-- Main Dynamic Content Region -->
+      <main class="page-content-wrapper" id="mainAppContent">
+        <!-- Module UI injected here by FabApp router -->
+      </main>
+
+      <!-- Bottom Live Trading Terminal Ribbon -->
+      <footer class="terminal-ticker-bar">
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <span class="badge-status badge-active" style="padding: 1px 6px; font-size: 0.65rem;">
+            LIVE TERMINAL
+          </span>
+          <span style="color: var(--text-muted); font-size: 0.7rem;">DATA FEED:</span>
+        </div>
+        <div class="ticker-items" id="terminalTickerContent">
+          <!-- Populated by FabApp.setupLiveTicker() -->
+        </div>
+        <div style="font-size: 0.7rem; color: var(--text-muted);">
+          FAB STEEL v2.4.0 &middot; LOCALSTORAGE ENGINE
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+  <!-- Global Toast Notification Root -->
+  <div id="toastContainer" class="toast-container-erp"></div>
+
+  <!-- Core Architecture Scripts -->
+  <script src="assets/js/utils.js"></script>
+  <script src="assets/js/validation.js"></script>
+  <script src="assets/js/seed-data.js"></script>
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/permissions.js"></script>
+
+  <!-- Layered Core Architecture -->
+  <script src="assets/js/core/app-config.js"></script>
+  <script src="assets/js/core/event-bus.js"></script>
+  <script src="assets/js/core/storage-adapter.js"></script>
+  <script src="assets/js/core/mock-api-adapter.js"></script>
+  <script src="assets/js/core/api-client.js"></script>
+  <script src="assets/js/core/repository.js"></script>
+
+  <!-- Enterprise Services Layer -->
+  <script src="assets/js/services/auth-service.js"></script>
+  <script src="assets/js/services/employee-service.js"></script>
+  <script src="assets/js/services/attendance-service.js"></script>
+  <script src="assets/js/services/invoice-service.js"></script>
+  <script src="assets/js/services/partner-service.js"></script>
+  <script src="assets/js/services/salary-service.js"></script>
+  <script src="assets/js/services/payroll-service.js"></script>
+  <script src="assets/js/services/website-service.js"></script>
+  <script src="assets/js/services/notification-service.js"></script>
+  <script src="assets/js/services/mail-service.js"></script>
+  <script src="assets/js/services/activity-service.js"></script>
+
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/notifications.js"></script>
+  <script src="assets/js/charts.js"></script>
+
+  <!-- Business Logic Modules -->
+  <script src="assets/js/modules/dashboard.js"></script>
+  <script src="assets/js/modules/employees.js"></script>
+  <script src="assets/js/modules/attendance.js"></script>
+  <script src="assets/js/modules/invoices.js"></script>
+  <script src="assets/js/modules/partners.js"></script>
+  <script src="assets/js/modules/salary.js"></script>
+  <script src="assets/js/modules/payroll.js"></script>
+  <script src="assets/js/modules/website.js"></script>
+  <script src="assets/js/modules/team.js"></script>
+  <script src="assets/js/modules/contacts.js"></script>
+  <script src="assets/js/modules/inquiries.js"></script>
+  <script src="assets/js/modules/mailer.js"></script>
+  <script src="assets/js/modules/logs.js"></script>
+  <script src="assets/js/modules/reports.js"></script>
+  <script src="assets/js/modules/settings.js"></script>
+
+  <!-- Main Orchestrator -->
+  <script src="assets/js/app.js"></script>
+
+</body>
+</html>
+

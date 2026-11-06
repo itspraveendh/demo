@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="publicSiteTitle">Fab Steel Consultancy &middot; High-Precision Structural Detailing & Tekla BIM</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #0891b2;
+      --accent: #f59e0b;
+      --dark-navy: #0b1120;
+      --surface-dark: #0f172a;
+      --surface-light: #f8fafc;
+      --text-dark: #0f172a;
+      --text-light: #f8fafc;
+      --border-subtle: rgba(255, 255, 255, 0.1);
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #ffffff;
+      color: #334155;
+      line-height: 1.6;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    .public-navbar {
+      background: rgba(11, 17, 32, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 0.85rem 0;
+    }
+
+    .public-nav-link {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      padding: 0.5rem 0.85rem;
+      transition: color 0.2s ease;
+    }
+    .public-nav-link:hover {
+      color: #38bdf8;
+    }
+
+    .hero-banner {
+      background: linear-gradient(135deg, rgba(11, 17, 32, 0.92) 0%, rgba(15, 23, 42, 0.94) 100%),
+                  url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1920&q=80') center/cover;
+      color: #ffffff;
+      padding: 6rem 0 5rem;
+      position: relative;
+    }
+
+    .stat-card-public {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      padding: 1.25rem;
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+    .stat-card-public:hover {
+      transform: translateY(-4px);
+      border-color: #38bdf8;
+    }
+    .stat-val-public {
+      font-size: 2rem;
+      font-weight: 800;
+      font-family: 'JetBrains Mono', monospace;
+      color: #38bdf8;
+      line-height: 1.1;
+      margin-bottom: 0.25rem;
+    }
+
+    .service-card-public {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 2rem;
+      height: 100%;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      transition: all 0.25s ease;
+    }
+    .service-card-public:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.12);
+      border-color: #93c5fd;
+    }
+    .service-icon-box {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: rgba(37, 99, 235, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2563eb;
+      margin-bottom: 1.25rem;
+    }
+
+    .team-card-public {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      text-align: center;
+      padding: 2rem 1.25rem;
+      transition: transform 0.2s ease;
+      height: 100%;
+    }
+    .team-card-public:hover {
+      transform: translateY(-4px);
+      border-color: #cbd5e1;
+    }
+    .team-img-public {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 1rem;
+      border: 3px solid #2563eb;
+    }
+
+    .public-footer {
+      background-color: var(--dark-navy);
+      color: #94a3b8;
+      padding: 4rem 0 2rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <nav class="public-navbar">
+    <div class="container d-flex align-items-center justify-content-between">
+      <a href="#home" class="d-flex align-items-center gap-2 text-decoration-none">
+        <div style="width: 38px; height: 38px; background: linear-gradient(135deg, #1e3a8a, #3b82f6); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 900; font-size: 1.15rem;">
+          FSC
+        </div>
+        <div class="d-flex flex-column">
+          <span style="font-weight: 800; color: #fff; font-size: 1.1rem; line-height: 1.1;" id="publicBrandName">Fab Steel Consultancy</span>
+          <span style="font-size: 0.65rem; color: #38bdf8; text-transform: uppercase; letter-spacing: 0.08em;">Global Structural BIM & Engineering</span>
+        </div>
+      </a>
+
+      <div class="d-none d-lg-flex align-items-center gap-1">
+        <a href="#services" class="public-nav-link">Services</a>
+        <a href="#projects" class="public-nav-link">Projects</a>
+        <a href="#team" class="public-nav-link">Leadership</a>
+        <a href="#contact" class="public-nav-link">Contact</a>
+        <a href="#partner-with-us" class="public-nav-link">Partner With Us</a>
+      </div>
+
+      <div class="d-flex align-items-center gap-2">
+        <a href="../login.html" class="btn btn-primary d-inline-flex align-items-center gap-2" style="font-size: 0.85rem; font-weight: 700; border-radius: 8px; padding: 0.55rem 1.15rem; background: linear-gradient(135deg, #2563eb, #1d4ed8);">
+          <i data-lucide="shield" style="width: 15px; height: 15px;"></i> Staff & Partner ERP Login
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-banner">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-8">
+          <div class="d-inline-flex align-items-center gap-2 px-3 py-1 mb-3" style="background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 9999px; font-size: 0.75rem; font-weight: 700; color: #38bdf8; font-family: monospace;">
+            <i data-lucide="award" style="width: 14px; height: 14px;"></i> AISC & EUROCODE CERTIFIED DETAILING
+          </div>
+          <h1 id="publicHeroTitle" style="font-size: 2.75rem; font-weight: 900; line-height: 1.2; margin-bottom: 1.25rem;">
+            Global Leaders in Structural Steel Engineering & Tekla BIM
+          </h1>
+          <p id="publicHeroSubtitle" style="font-size: 1.1rem; color: #cbd5e1; line-height: 1.6; margin-bottom: 2rem; max-width: 680px;">
+            From monumental stadium roofs to heavy industrial refinery pipe racks, Fab Steel delivers millimeter-precision detailing, connection engineering, and robotic CNC spooling.
+          </p>
+          <div class="d-flex flex-wrap gap-3 mb-4">
+            <a href="#contact" class="btn btn-primary btn-lg" style="font-size: 0.95rem; font-weight: 700; padding: 0.75rem 1.75rem; border-radius: 10px;">
+              Request Detailing Estimate
+            </a>
+            <a href="#services" class="btn btn-outline-light btn-lg" style="font-size: 0.95rem; font-weight: 700; padding: 0.75rem 1.75rem; border-radius: 10px;">
+              Our Capabilities &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Dynamic Metrics Counters -->
+      <div class="row g-3 mt-4">
+        <div class="col-md-3 col-6">
+          <div class="stat-card-public">
+            <div id="stat1Val" class="stat-val-public">145,000+</div>
+            <div id="stat1Label" style="font-size: 0.8rem; color: #cbd5e1;">Metric Tonnes Detailed</div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="stat-card-public">
+            <div id="stat2Val" class="stat-val-public">280+</div>
+            <div id="stat2Label" style="font-size: 0.8rem; color: #cbd5e1;">Mega Projects Delivered</div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="stat-card-public">
+            <div id="stat3Val" class="stat-val-public">99.9%</div>
+            <div id="stat3Label" style="font-size: 0.8rem; color: #cbd5e1;">Erection Fit-Up Accuracy</div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="stat-card-public">
+            <div id="stat4Val" class="stat-val-public">18+</div>
+            <div id="stat4Label" style="font-size: 0.8rem; color: #cbd5e1;">Countries Served</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" style="padding: 5rem 0; background-color: #f8fafc;">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: #2563eb; letter-spacing: 0.08em;">World-Class Steel Engineering</span>
+        <h2 style="font-size: 2.25rem; font-weight: 800; color: #0f172a; margin-top: 0.25rem;">Our Core Capabilities</h2>
+        <p style="color: #64748b; max-width: 600px; margin: 0 auto; font-size: 0.95rem;">
+          End-to-end structural steel lifecycle solutions — from concept modeling to robotic fabrication files.
+        </p>
+      </div>
+
+      <div class="row g-4" id="publicServicesGrid">
+        <!-- Rendered dynamically from LocalStorage CMS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Public Dynamic Leadership Team Section -->
+  <section id="team" style="padding: 5rem 0; background-color: #ffffff;">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: #2563eb; letter-spacing: 0.08em;">Executive Leadership & BIM Fellows</span>
+        <h2 style="font-size: 2.25rem; font-weight: 800; color: #0f172a; margin-top: 0.25rem;">Meet Our Engineering Masters</h2>
+        <p style="color: #64748b; max-width: 600px; margin: 0 auto; font-size: 0.95rem;">
+          Licensed Professional Engineers, AWS CWI welding inspectors, and veteran Tekla API developers.
+        </p>
+      </div>
+
+      <div class="row g-4" id="publicTeamGrid">
+        <!-- Rendered dynamically from LocalStorage (FabStorage.KEYS.TEAM) -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Contact Form & Partner Desk Section -->
+  <section id="contact" style="padding: 5rem 0; background-color: #f1f5f9;">
+    <div class="container">
+      <div class="row g-5">
+        
+        <!-- Contact Form (Directly writes to ERP Contact Messages) -->
+        <div class="col-lg-6">
+          <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 2.5rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);">
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(37, 99, 235, 0.1); display: flex; align-items: center; justify-content: center; color: #2563eb;">
+                <i data-lucide="mail" style="width: 18px; height: 18px;"></i>
+              </div>
+              <h3 style="font-size: 1.35rem; font-weight: 800; color: #0f172a; margin: 0;">General Engineering Inquiry</h3>
+            </div>
+            <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 1.5rem;">
+              Submit your drawings or inquiry below. It directly syncs into our ERP Estimation Desk.
+            </p>
+
+            <form onsubmit="handlePublicContactSubmit(event)">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label" style="font-size: 0.8rem; font-weight: 600;">Your Name *</label>
+                  <input type="text" name="name" class="form-control" placeholder="e.g. Robert Vance" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" style="font-size: 0.8rem; font-weight: 600;">Corporate Email *</label>
+                  <input type="email" name="email" class="form-control" placeholder="name@company.com" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" style="font-size: 0.8rem; font-weight: 600;">Contact Phone</label>
+                  <input type="text" name="phone" class="form-control" placeholder="+1 (555) 000-0000">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" style="font-size: 0.8rem; font-weight: 600;">Subject Line *</label>
+                  <input type="text" name="subject" class="form-control" placeholder="e.g. 5,000 MT Truss Detailing" required>
+                </div>
+                <div class="col-12">
+                  <label class="form-label" style="font-size: 0.8rem; font-weight: 600;">Project Scope / Message *</label>
+                  <textarea name="message" class="form-control" rows="4" placeholder="Detail your metric tonnage, design codes (AISC/Eurocode), and timeline..." required></textarea>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary w-100" style="font-weight: 700; padding: 0.75rem;">
+                    <i data-lucide="send" style="width: 15px; height: 15px; display: inline;"></i> Transmit Inbound Inquiry
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Partner Application Form (Directly writes to ERP Partner Inquiries) -->
+        <div class="col-lg-6" id="partner-with-us">
+          <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 2.5rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);">
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(8, 145, 178, 0.1); display: flex; align-items: center; justify-content: center; color: #0891b2;">
+                <i data-lucide="building" style="width: 18px; height: 18px;"></i>
+              </div>
+              <h3 style="font-size: 1.35rem; font-weight: 800; color: #0f172a; margin: 0;">EPC & Fabricator Partnership Application</h3>
+            </div>
+            <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 1.5rem;">
+              Apply for preferred vendor framework status or joint venture master service agreement.
+            </p>
+
+            <form onsubmit="handlePublicPartnerSubmit(event)">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label" style="font-size: 0.8rem; font-weight: 600;">Enterprise / Fabricator Name *</label>
+                  <input type="text" name="companyName" class="form-control" placeholder="e.g. Apex Industrial Works" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" style="font-size: 0.8rem; font-weight: 600;">Contact Executive *</label>
+                  <input type="text" name="contactPerson" class="form-control" placeholder="e.g. Vikram Mehta (VP)" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" style="font-size: 0.8rem; font-weight: 600;">Business Email *</label>
+                  <input type="email" name="email" class="form-control" placeholder="procurement@company.com" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" style="font-size: 0.8rem; font-weight: 600;">Phone Number</label>
+                  <input type="text" name="phone" class="form-control" placeholder="+1 (555) 789-0000" required>
+                </div>
+                <div class="col-12">
+                  <label class="form-label" style="font-size: 0.8rem; font-weight: 600;">Partnership Classification</label>
+                  <select name="partnershipType" class="form-select">
+                    <option value="Preferred Global Steel Detailing Partner">Preferred Global Steel Detailing Partner</option>
+                    <option value="EPC Contractor & Fabricator">EPC Contractor & Fabricator</option>
+                    <option value="Offshore & Heavy Industrial Subsea">Offshore & Heavy Industrial Subsea</option>
+                    <option value="Complex Architectural Bridges & Stadia">Complex Architectural Bridges & Stadia</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label" style="font-size: 0.8rem; font-weight: 600;">Tender / Framework Details *</label>
+                  <textarea name="message" class="form-control" rows="4" placeholder="Detail annual fabrication capacity, primary CNC machine lines, and target contract volumes..." required></textarea>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-outline-dark w-100" style="font-weight: 700; padding: 0.75rem;">
+                    <i data-lucide="check-circle" style="width: 15px; height: 15px; display: inline;"></i> Submit Partner Application
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="public-footer">
+    <div class="container">
+      <div class="row g-4 mb-4">
+        <div class="col-lg-4">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <div style="width: 32px; height: 32px; background: linear-gradient(135deg, #1e3a8a, #3b82f6); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 900;">
+              FSC
+            </div>
+            <span style="font-size: 1.1rem; font-weight: 800; color: #fff;">Fab Steel Consultancy</span>
+          </div>
+          <p style="font-size: 0.825rem; line-height: 1.6;">
+            World-class structural steel engineering, connection calculations, and LOD 400 BIM detailing.
+          </p>
+        </div>
+        <div class="col-lg-4">
+          <h4 style="font-size: 0.9rem; font-weight: 700; color: #fff; margin-bottom: 1rem; text-transform: uppercase;">Direct Contact</h4>
+          <div style="font-size: 0.825rem; line-height: 1.8;">
+            <div id="footerAddress">Suite 1800, Steel Tower, Houston TX 77002, USA</div>
+            <div>Email: <strong style="color: #fff;" id="footerEmail">contact@fabsteel.demo</strong></div>
+            <div>Phone: <strong style="color: #fff;" id="footerPhone">+1 (555) 783-3500</strong></div>
+          </div>
+        </div>
+        <div class="col-lg-4 text-lg-end">
+          <h4 style="font-size: 0.9rem; font-weight: 700; color: #fff; margin-bottom: 1rem; text-transform: uppercase;">Portal Access</h4>
+          <a href="../login.html" class="btn btn-outline-light btn-sm" style="font-weight: 700;">
+            <i data-lucide="lock" style="width: 14px; height: 14px; display: inline;"></i> Launch ERP Portal &rarr;
+          </a>
+        </div>
+      </div>
+      <hr style="border-color: rgba(255, 255, 255, 0.08); margin: 2rem 0 1.5rem;">
+      <div class="d-flex justify-content-between align-items-center flex-wrap gap-2" style="font-size: 0.75rem;">
+        <div>&copy; 2026 Fab Steel Consultancy Global Corp. All rights reserved.</div>
+        <div>Compliant with AISC 360-22, Eurocode 3, and OSHA 1926 Safety Protocols.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../assets/js/utils.js"></script>
+  <script src="../assets/js/seed-data.js"></script>
+  <script src="../assets/js/storage.js"></script>
+  <script src="../assets/js/notifications.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      loadDynamicPublicContent();
+      if (window.lucide) window.lucide.createIcons();
+    });
+
+    function loadDynamicPublicContent() {
+      const cms = window.FabStorage.get(window.FabStorage.KEYS.WEBSITE, {}) || {};
+      const company = window.FabStorage.get(window.FabStorage.KEYS.SETTINGS, {}) || {};
+      const team = window.FabStorage.get(window.FabStorage.KEYS.TEAM, []) || [];
+
+      // Update Company info
+      if (company.companyName) {
+        document.getElementById('publicBrandName').innerText = company.companyName;
+        document.getElementById('publicSiteTitle').innerText = `${company.companyName} · Structural Detailing & Tekla BIM`;
+      }
+      if (company.email) document.getElementById('footerEmail').innerText = company.email;
+      if (company.phone) document.getElementById('footerPhone').innerText = company.phone;
+      if (company.address) document.getElementById('footerAddress').innerText = company.address;
+
+      // Update Hero
+      if (cms.hero) {
+        if (cms.hero.title) document.getElementById('publicHeroTitle').innerText = cms.hero.title;
+        if (cms.hero.subtitle) document.getElementById('publicHeroSubtitle').innerText = cms.hero.subtitle;
+        if (cms.hero.stat1Val) document.getElementById('stat1Val').innerText = cms.hero.stat1Val;
+        if (cms.hero.stat1Label) document.getElementById('stat1Label').innerText = cms.hero.stat1Label;
+        if (cms.hero.stat2Val) document.getElementById('stat2Val').innerText = cms.hero.stat2Val;
+        if (cms.hero.stat2Label) document.getElementById('stat2Label').innerText = cms.hero.stat2Label;
+        if (cms.hero.stat3Val) document.getElementById('stat3Val').innerText = cms.hero.stat3Val;
+        if (cms.hero.stat3Label) document.getElementById('stat3Label').innerText = cms.hero.stat3Label;
+        if (cms.hero.stat4Val) document.getElementById('stat4Val').innerText = cms.hero.stat4Val;
+        if (cms.hero.stat4Label) document.getElementById('stat4Label').innerText = cms.hero.stat4Label;
+      }
+
+      // Render Services
+      const services = cms.services || [];
+      const servicesGrid = document.getElementById('publicServicesGrid');
+      if (servicesGrid && services.length > 0) {
+        servicesGrid.innerHTML = services.map(s => `
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card-public">
+              <div class="service-icon-box">
+                <i data-lucide="${s.icon || 'box'}" style="width: 24px; height: 24px;"></i>
+              </div>
+              <h3 style="font-size: 1.2rem; font-weight: 800; color: #0f172a; margin-bottom: 0.75rem;">${FabUtils.escapeHtml(s.title)}</h3>
+              <p style="font-size: 0.875rem; color: #64748b; line-height: 1.6; margin: 0;">${FabUtils.escapeHtml(s.description)}</p>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      // Render Team
+      const teamGrid = document.getElementById('publicTeamGrid');
+      if (teamGrid && team.length > 0) {
+        teamGrid.innerHTML = team.map(m => `
+          <div class="col-lg-3 col-md-6">
+            <div class="team-card-public">
+              <img src="${m.photo}" class="team-img-public" alt="${m.name}">
+              <h4 style="font-size: 1.05rem; font-weight: 800; color: #0f172a; margin-bottom: 0.25rem;">${FabUtils.escapeHtml(m.name)}</h4>
+              <div style="font-size: 0.775rem; font-weight: 600; color: #2563eb; margin-bottom: 0.5rem;">${FabUtils.escapeHtml(m.designation)}</div>
+              <p style="font-size: 0.75rem; color: #64748b; line-height: 1.5; margin-bottom: 1rem;">${FabUtils.escapeHtml(m.bio)}</p>
+              ${m.linkedin ? `<a href="${m.linkedin}" target="_blank" style="font-size: 0.75rem; color: #0891b2; font-weight: 600; text-decoration: none;">View LinkedIn Profile &rarr;</a>` : ''}
+            </div>
+          </div>
+        `).join('');
+      }
+    }
+
+    // Handle Contact Form Submit -> Direct write to fab_erp_contacts
+    function handlePublicContactSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
+
+      const msg = {
+        id: `MSG-${Math.floor(3000 + Math.random() * 900)}`,
+        name: formData.get('name').trim(),
+        email: formData.get('email').trim(),
+        phone: formData.get('phone').trim(),
+        subject: formData.get('subject').trim(),
+        message: formData.get('message').trim(),
+        date: new Date().toISOString(),
+        status: 'New',
+        notes: 'Submitted via Public Website Contact Form'
+      };
+
+      window.FabStorage.add(window.FabStorage.KEYS.CONTACTS, msg, 'Contact Messages', `Public web message from ${msg.name} regarding "${msg.subject}"`);
+      window.FabNotifications.addNotification('message', `Public Web Inquiry: ${msg.name}`, msg.subject, '#contacts');
+
+      alert(`Thank you, ${msg.name}! Your message has been logged in our ERP system with Reference ID: ${msg.id}. An estimation engineer will contact you shortly.`);
+      form.reset();
+    }
+
+    // Handle Partner Form Submit -> Direct write to fab_erp_inquiries
+    function handlePublicPartnerSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
+
+      const inq = {
+        id: `INQ-${Math.floor(4000 + Math.random() * 900)}`,
+        companyName: formData.get('companyName').trim(),
+        contactPerson: formData.get('contactPerson').trim(),
+        email: formData.get('email').trim(),
+        phone: formData.get('phone').trim(),
+        partnershipType: formData.get('partnershipType'),
+        message: formData.get('message').trim(),
+        submissionDate: new Date().toISOString(),
+        status: 'New',
+        assignedStaff: 'Alexander Wright',
+        notes: 'Submitted via Public Website Partner Portal'
+      };
+
+      window.FabStorage.add(window.FabStorage.KEYS.INQUIRIES, inq, 'Partner Inquiries', `Public partner application from ${inq.companyName}`);
+      window.FabNotifications.addNotification('partner', `New Partner Tender: ${inq.companyName}`, inq.partnershipType, '#inquiries');
+
+      alert(`Application received for ${inq.companyName}! Your submission has been routed to executive leadership with Reference ID: ${inq.id}.`);
+      form.reset();
+    }
+  </script>
+</body>
+</html>
+

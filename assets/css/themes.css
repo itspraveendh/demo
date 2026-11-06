@@ -1,0 +1,148 @@
+/* ==========================================================================
+   FAB STEEL CONSULTANCY ERP - ENTERPRISE THEMES & COLOR SYSTEM
+   Clean, modern enterprise SaaS aesthetic (Linear / Stripe / Salesforce inspired)
+   Default: LIGHT THEME (#F5F7FA)
+   ========================================================================== */
+
+:root {
+  /* Typography */
+  --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Universal Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.2s ease-in-out;
+
+  /* Consistent Enterprise Radii */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 14px;
+  --radius-full: 9999px;
+}
+
+/* ==========================================================================
+   LIGHT THEME (DEFAULT ON FIRST LAUNCH)
+   ========================================================================== */
+:root,
+[data-theme="light"],
+body.light-theme {
+  --bg-app: #F5F7FA;
+  --bg-sidebar: #FFFFFF;
+  --bg-surface: #FFFFFF;
+  --bg-surface-elevated: #F8FAFC;
+  --bg-surface-hover: #F1F5F9;
+
+  --border-subtle: #F1F5F9;
+  --border-medium: #E5E7EB;
+  --border-strong: #D1D5DB;
+  --border-focus: #2563EB;
+
+  /* Typography Colors */
+  --text-primary: #172033;
+  --text-secondary: #667085;
+  --text-muted: #94A3B8;
+  --text-inverse: #FFFFFF;
+
+  /* Core Palette */
+  --primary: #2563EB;
+  --primary-hover: #1D4ED8;
+  --primary-light: rgba(37, 99, 235, 0.08);
+
+  --secondary: #0891B2;
+  --secondary-hover: #0E7490;
+  --secondary-light: rgba(8, 145, 178, 0.08);
+
+  --accent: #4F46E5;
+  --accent-light: rgba(79, 70, 229, 0.08);
+
+  /* Status Colors */
+  --success: #16A34A;
+  --success-light: rgba(22, 163, 74, 0.1);
+  --success-text: #15803D;
+
+  --warning: #D97706;
+  --warning-light: rgba(217, 119, 6, 0.1);
+  --warning-text: #B45309;
+
+  --danger: #DC2626;
+  --danger-light: rgba(220, 38, 38, 0.1);
+  --danger-text: #B91C1C;
+
+  --info: #0284C7;
+  --info-light: rgba(2, 132, 199, 0.1);
+  --info-text: #0369A1;
+
+  /* Shadows - Minimal & Professional */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+
+  /* Terminal Ticker Ribbon */
+  --ticker-bg: #FFFFFF;
+  --ticker-border: #E5E7EB;
+  --ticker-text: #475569;
+}
+
+/* ==========================================================================
+   DARK THEME (TOGGLED)
+   ========================================================================== */
+[data-theme="dark"],
+body.dark-theme {
+  --bg-app: #0B1220;
+  --bg-sidebar: #111827;
+  --bg-surface: #182235;
+  --bg-surface-elevated: #1E2B42;
+  --bg-surface-hover: #24344F;
+
+  --border-subtle: #1E2B42;
+  --border-medium: #293548;
+  --border-strong: #374761;
+  --border-focus: #3B82F6;
+
+  /* Typography Colors */
+  --text-primary: #F9FAFB;
+  --text-secondary: #9CA3AF;
+  --text-muted: #6B7280;
+  --text-inverse: #0B1220;
+
+  /* Core Palette */
+  --primary: #3B82F6;
+  --primary-hover: #2563EB;
+  --primary-light: rgba(59, 130, 246, 0.15);
+
+  --secondary: #06B6D4;
+  --secondary-hover: #0891B2;
+  --secondary-light: rgba(6, 182, 212, 0.15);
+
+  --accent: #6366F1;
+  --accent-light: rgba(99, 102, 241, 0.15);
+
+  /* Status Colors */
+  --success: #22C55E;
+  --success-light: rgba(34, 197, 94, 0.15);
+  --success-text: #4ADE80;
+
+  --warning: #F59E0B;
+  --warning-light: rgba(245, 158, 11, 0.15);
+  --warning-text: #FBBF24;
+
+  --danger: #EF4444;
+  --danger-light: rgba(239, 68, 68, 0.15);
+  --danger-text: #F87171;
+
+  --info: #38BDF8;
+  --info-light: rgba(56, 189, 248, 0.15);
+  --info-text: #7DD3FC;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+
+  /* Terminal Ticker Ribbon */
+  --ticker-bg: #111827;
+  --ticker-border: #293548;
+  --ticker-text: #9CA3AF;
+}

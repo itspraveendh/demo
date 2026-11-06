@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fab Steel Consultancy ERP</title>
+  <script src="assets/js/utils.js"></script>
+  <script src="assets/js/seed-data.js"></script>
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script>
+    // Smart Entry Routing
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.FabAuth && window.FabAuth.isAuthenticated()) {
+        window.location.replace('dashboard.html#dashboard');
+      } else {
+        window.location.replace('login.html');
+      }
+    });
+  </script>
+</head>
+<body style="background: #f5f7fa; color: #172033; font-family: -apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0;">
+  <div style="text-align: center; max-width: 420px; padding: 2rem; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
+    <h2 style="margin-bottom: 0.5rem; font-size: 1.4rem; color: #172033; font-weight: 700;">Fab Steel Consultancy ERP</h2>
+    <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1.5rem;">Initializing enterprise workspace session...</p>
+    <div style="display: flex; gap: 0.75rem; justify-content: center;">
+      <a href="login.html" style="background: #2563eb; color: #ffffff; text-decoration: none; padding: 10px 18px; border-radius: 6px; font-weight: 600; font-size: 0.85rem;">Login Portal</a>
+      <a href="public-preview/index.html" style="background: #f8fafc; color: #475569; text-decoration: none; padding: 10px 18px; border: 1px solid #cbd5e1; border-radius: 6px; font-weight: 600; font-size: 0.85rem;">Public Website</a>
+    </div>
+  </div>
+</body>
+</html>
